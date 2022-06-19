@@ -14,7 +14,6 @@ class SndWavRepacker {
 		app.ready(function() {
 			app.addComponent(new MainView());
 			// begin
-			// app.registerEvent();
 			// var UnpackSnds = unpackSndWavFile(soundPath);
 			readGfsFile(packagePath);
 			// end
