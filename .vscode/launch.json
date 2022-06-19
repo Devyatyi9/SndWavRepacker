@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Build",
+      "type": "haxe-eval",
+      "request": "launch"
+    },
+    {
+      "name": "Debug",
+      "type": "hxcpp",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceFolder}/bin/SndWavRepacker-debug.exe"
+    },
+    {
+      "name": "Build & Debug",
+      "type": "hxcpp",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/bin/SndWavRepacker-debug.exe",
+      "preLaunchTask": {
+        "type": "haxe",
+        "args": "active configuration"
+      }
+    },
+    {
+      "name": "Test Debug",
+      "type": "hxcpp",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceFolder}/bin/Test-debug.exe"
+    }
+  ]
+}

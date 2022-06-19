@@ -1,0 +1,10 @@
+-D analyzer-optimize
+-cp test
+-cp src
+--main Main
+--cpp bin
+-D exe_link
+#Force 64-bit compile for current desktop
+-D HXCPP_M64
+
+--library tink_json:0.11.0

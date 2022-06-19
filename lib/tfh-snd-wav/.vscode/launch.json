@@ -1,0 +1,33 @@
+{
+  // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+  // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+  // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Haxe Interpreter",
+      "type": "haxe-eval",
+      "request": "launch"
+    },
+    {
+      "name": "C++ debug",
+      "type": "hxcpp",
+      "hxml": "build-cpp.hxml",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/bin/Main-debug.exe"
+    },
+    {
+      "name": "C++ build & run",
+      "type": "hxcpp",
+      "hxml": "build-cpp.hxml",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/bin/Main.exe",
+      "preLaunchTask": {
+        "type": "haxe",
+        "args": "active configuration"
+      }
+    }
+  ]
+}

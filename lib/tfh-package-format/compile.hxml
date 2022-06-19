@@ -1,0 +1,8 @@
+-D analyzer-optimize
+-cp test
+-cp src
+# --verbose
+--debug
+-lib format
+--main Main
+--interp

@@ -1,0 +1,76 @@
+//------------------------------------------------
+//--- 010 Editor v11.0.1 Binary Template
+//
+//      File: GFS_RevergeLabs.bt
+//   Authors: Devyatyi9, 0xFAIL
+//   Version: 0.2
+//   Purpose: Parser for Lab Zero Games's (Reverge Labs) package file format used in Z-Engine
+//  Category: Game
+// File Mask: *.gfs
+//  ID Bytes: 
+//   History: 
+//   0.2   2022-01-08 Devyatyi9: Added checking header identification, fixed zero size data in some files
+//   0.1   2022-01-03 Devyatyi9: Initial release.
+//------------------------------------------------
+
+BigEndian();
+
+typedef struct Header {
+int32 data_offset <name="Data offset",fgcolor=0xA0D7FA>;
+int64 file_identifier_length <name="File identifier length">;
+char file_identifier[file_identifier_length] <name="File identifier",open=suppress,bgcolor=0x0C649C>;
+int64 file_version_lenght <name="File version lenght">;
+char file_version[file_version_lenght] <name="File version",open=suppress>;
+int64 n_of_files <name="Number of files",bgcolor=cDkAqua>;
+};
+Header hds <name="Header",open=true,bgcolor=0x018c8c>;
+
+if (hds.file_identifier != "Reverge Package File")
+{
+    Warning( "File is not a valid GFS file. Template stopped." );
+    return -1;
+}
+
+
+typedef struct FileInf {
+int64 file_path_length <name="File path length">;
+char reference_path[file_path_length] <name="File path",open=suppress,bgcolor=0xe0a90b>;
+int64 reference_length <name="File length">;
+int32 reference_alignment <name="File alignment">;
+};
+
+
+typedef struct Info {
+local int i;
+    for (i = 0; i < hds.n_of_files; i++) {
+    FileInf fileinf <name="File info",bgcolor=0xffd661>;
+  };
+};
+Info bis <name="Meta inf">;
+
+
+// самая важная часть
+int32 FileData(int i) {
+running_offset += (bis.fileinf[i].reference_alignment - (running_offset % bis.fileinf[i].reference_alignment)) % bis.fileinf[i].reference_alignment;
+FSeek(running_offset);
+local int32 size = bis.fileinf[i].reference_length;
+if (size > 0) {
+byte fdata[size] <name="File data",open=suppress,bgcolor=0x720C7A>; }
+return running_offset += bis.fileinf[i].reference_length;
+};
+
+
+typedef struct Data {
+// Data of files
+local int i;
+local int32 running_offset = hds.data_offset;
+
+for (i = 0; i < hds.n_of_files; i++) {  
+  struct FileStruct {
+  running_offset = FileData(i);
+      };
+
+struct FileStruct fs <name="File boundary",bgcolor=0x7e5316>;
+    };
+  };
+Data bds <name="Data of files">;
