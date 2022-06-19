@@ -12,7 +12,7 @@ class SndWavRepacker {
 		var packagePath = '../test/assets/gfs/big-floppa.gfs';
 
 		app.ready(function() {
-			app.addComponent(new WindowView());
+			app.addComponent(new MainView());
 			// begin
 			// app.registerEvent();
 			// var UnpackSnds = unpackSndWavFile(soundPath);
