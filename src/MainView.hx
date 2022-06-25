@@ -11,18 +11,23 @@ class MainView extends VBox {
 		var soundPath = '../test/assets/snds/cow.snd-wav';
 		var packagePath = '../test/assets/gfs/big-floppa.gfs';
 		button1.onClick = function(e) {
-			button1.text = "Thanks!";
+			button1.text = "Thanks! From button 1";
+			readGfsFile(packagePath);
+		}
+		button2.onClick = function(e) {
+			button2.text = "Thanks! From button 2";
 			readGfsFile(packagePath);
 		}
 	}
 
-	@:bind(button2, MouseEvent.CLICK)
-	private function onMyButton(e:MouseEvent) {
-		button2.text = "Thanks!";
-		var packagePath = '../test/assets/gfs/big-floppa.gfs';
-		readGfsFile(packagePath);
-	}
-
+	/*
+		@:bind(button2, MouseEvent.CLICK)
+		private function onMyButton(e:MouseEvent) {
+			button2.text = "Thanks! From button 2";
+			var packagePath = '../test/assets/gfs/big-floppa.gfs';
+			readGfsFile(packagePath);
+		}
+	 */
 	static function unpackSndWavFile(location:String) {
 		// new SoundsRepacker().unpack(location, another_location);
 		new SoundsRepacker().unpack(location);
