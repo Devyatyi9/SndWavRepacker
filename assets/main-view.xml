@@ -1,12 +1,14 @@
 <vbox style="padding: 5px;">
     <style>
         .button {
-            font-size: 24px;
+            font-size: 20px;
         }
     </style>
     <hbox>
-        <button text="Click Me!" id="button1" style="color: red;" />
-        <button text="Click Me!" id="button2" style="color: green;" />
-        <button text="Click Me!" id="button3" onclick="this.text='Thanks!'" style="color: blue;" />
+        <button text="Unpack snd-wav" id="button2" style="color: green;" />
+        <button text="Repack snd-wav" id="button3" style="color: blue;" />
     </hbox>
+    <box width="100%">
+        <label text="Drop files here." id="theLabel"/>
+    </box>
 </vbox>
