@@ -3,9 +3,9 @@
 -cp src
 -main SndWavRepacker
 
+-lib hxWidgets
 -lib haxeui-core
 -lib haxeui-hxwidgets
--lib hxWidgets
 --library tink_json:0.11.0
 
 # -D analyzer-optimize
