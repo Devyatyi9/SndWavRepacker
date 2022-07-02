@@ -13,6 +13,8 @@ class SoundsRepacker {
 	public function unpack(location:String, ?another_location = '', ?ignoreSfx = false) {
 		// Reader
 		// todo: добавить игнор лист для звуков в конкретных файлах (only character voice)
+		if (FileSystem.exists(location)) {} else
+			trace("Can't open " + location);
 		var i = sys.io.File.read(location);
 		trace('Start of file reading snd-wav: "$location"');
 		var sndWavFile = new Reader(i).read();
@@ -93,6 +95,8 @@ class SoundsRepacker {
 				dir = '${another_path.dir}/';
 			} else
 				configPath = '${path.dir}/${path.file}/${path.file}.json';
+			if (FileSystem.exists(configPath)) {} else
+				trace("Can't open " + configPath);
 			var loadConfig:String = sys.io.File.getContent(configPath);
 			// var sndJson:ArrayJson = haxe.Json.parse(loadConfig); // JSON PARSE (failed because of Dynamic type)
 			var sndJson:{

@@ -1,0 +1,16 @@
+<box style="padding: 5px;" width="800" height="600">
+    <grid width="100%" height="100%">
+        <box id="dropTarget1" width="50%" height="50%" style="background-color: #FFCCCC">
+            <label text="Drop Some Files" id="theLabel1" verticalAlign="center" horizontalAlign="center" style="text-align:center" />
+        </box>
+        <box id="dropTarget2" width="50%" height="50%" style="background-color: #CCFFCC">
+            <label text="Drop Some Files" id="theLabel2" verticalAlign="center" horizontalAlign="center" style="text-align:center" />
+        </box>
+        <box id="dropTarget3" width="50%" height="50%" style="background-color: #CCCCFF">
+            <label text="Drop Some Files" id="theLabel3" verticalAlign="center" horizontalAlign="center" style="text-align:center" />
+        </box>
+        <box id="dropTarget4" width="50%" height="50%" style="background-color: #FFFFCC">
+            <label text="Drop Some Files" id="theLabel4" verticalAlign="center" horizontalAlign="center" style="text-align:center" />
+        </box>
+    </grid>
+</box>

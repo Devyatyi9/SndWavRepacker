@@ -13,7 +13,7 @@
 -D WXSTATIC
 -D HXCPP_M64
 
--cpp bin
+-cpp release
 
 --class-path lib/tfh-snd-wav/src
 --class-path lib/tfh-package-format/src
