@@ -13,8 +13,6 @@ class SoundsRepacker {
 	public function unpack(location:String, ?another_location = '', ?ignoreSfx = false) {
 		// Reader
 		// todo: добавить игнор лист для звуков в конкретных файлах (only character voice)
-		if (FileSystem.exists(location)) {} else
-			trace("Can't open " + location);
 		var i = sys.io.File.read(location);
 		trace('Start of file reading snd-wav: "$location"');
 		var sndWavFile = new Reader(i).read();

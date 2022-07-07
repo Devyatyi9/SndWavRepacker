@@ -1,0 +1,16 @@
+<dialog>
+    <listview id="lv2" width="200" height="150">
+        <item-renderer layoutName="horizontal" width="100%">
+            <checkbox id="complete" />
+            <label width="100%" id="item" verticalAlign="center" />
+        </item-renderer>
+        <data>
+            <item complete="false" item="Item 1" image="haxeui-core/styles/default/haxeui_tiny.png" />
+            <item complete="true" item="Item 2" image="haxeui-core/styles/default/haxeui_tiny.png" />
+            <item complete="true" item="Item 3" image="haxeui-core/styles/default/haxeui_tiny.png" />
+            <item complete="false" item="Item 4" image="haxeui-core/styles/default/haxeui_tiny.png" />
+            <item complete="true" item="Item 5" image="haxeui-core/styles/default/haxeui_tiny.png" />
+        </data>
+    </listview>
+    <button text="Add 100 items" id="addItems2" width="100%" />
+</dialog> 

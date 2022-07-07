@@ -1,14 +1,20 @@
 <vbox style="padding: 5px;">
     <style>
         .button {
-            font-size: 20px;
+            font-size: 17px;
         }
     </style>
     <hbox>
-        <button text="Unpack snd-wav" id="button1" style="color: green;" />
-        <button text="Repack snd-wav" id="button2" style="color: blue;" />
+        <button text="Unpack snd-wav" id="button1" style="color: green;" width="144" />
+        <button text="Repack snd-wav" id="button2" style="color: blue;" width="144"/>
+        <button text="Open gfs" id="button3" style="color: #7932a8;" width="144"/>
+    </hbox>
+    <hbox>
+        <image resource="images/dropFile_event.png" id="dropFiled1" width="144"/>
+        <image resource="images/dropFile_event.png" id="dropFiled2" width="144"/>
+        <image resource="images/dropFile_event.png" id="dropFiled3" width="144"/>
     </hbox>
     <box width="100%">
-        <label text="Status" id="theLabel"/>
+        <label text="Drop files or press buttons" id="theLabel"/>
     </box>
 </vbox>

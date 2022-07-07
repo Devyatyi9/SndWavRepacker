@@ -7,7 +7,7 @@ class SndWavRepacker {
 		var app = new HaxeUIApp();
 		app.ready(function() {
 			app.addComponent(new MainView()); // .hide  When console mode
-
+			trace('author: Devyatyi9');
 			app.start();
 		});
 	}

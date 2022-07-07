@@ -5,7 +5,7 @@ import format.gfs_revergelabs.*;
 
 class Test {
 	static public function main():Void {
-		trace("Hello World");
+		trace('author: Devyatyi9');
 		launchSndArgs();
 	}
 
