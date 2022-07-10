@@ -21,7 +21,6 @@ class Reader {
 			_++;
 		}
 		trace('Gfs header and metadata has been read.');
-		// i.seek(0, SeekBegin);
 		return {
 			header: header,
 			metaInfBlock: metaInfBlock
@@ -32,8 +31,8 @@ class Reader {
 		if (gfsMeta == null) {
 			i.seek(0, SeekBegin);
 			gfsMeta = read();
-		}
-		i.seek(gfsMeta.header.data_offset, SeekBegin);
+		} else
+			i.seek(gfsMeta.header.data_offset, SeekBegin);
 		var data = Bytes.alloc(0);
 		var running_offset = gfsMeta.header.data_offset;
 		var result = {
@@ -100,7 +99,6 @@ class Reader {
 				}
 			}
 		}
-		// i.seek(0, SeekBegin);
 		return result;
 	}
 

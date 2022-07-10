@@ -51,11 +51,11 @@ class GfsTest {
 		var myGFS = new Reader(gi).read();
 		trace(myGFS.header);
 		// gi.seek(0, SeekBegin);
-		var testFile2 = new Reader(gi).getFile(17); // 'test-file.txt'
+		var testFile2 = new Reader(gi).getFile(17, myGFS); // 'test-file.txt'
 		trace(testFile2.data);
 		trace(testFile2.offset);
 		// gi.seek(0, SeekBegin);
-		var testFile1 = new Reader(gi).getFile('AI/combos/cow/Cow_3_WORK.ini'); // 'test-file2.txt'
+		var testFile1 = new Reader(gi).getFile('AI/combos/cow/Cow_3_WORK.ini', myGFS); // 'test-file2.txt'
 		trace(testFile1.data);
 		trace(testFile1.offset);
 		gi.close();
