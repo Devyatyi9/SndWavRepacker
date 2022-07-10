@@ -21,6 +21,9 @@ class GfsTest {
 		// var location = "test/assets/gfs/empty-container-04.gfs";
 		// var location = "test/assets/gfs/empty-container-04-aligned.gfs";
 		var location = "test/assets/gfs/test-failik.gfs";
+		#if (debug && cpp)
+		location = "../test/assets/gfs/test-failik.gfs";
+		#end
 		var path = new haxe.io.Path(location);
 		trace(path.dir); // path/to
 		trace(path.file); // file
@@ -47,11 +50,11 @@ class GfsTest {
 		trace('Start of gfs file reading: "$location"');
 		var myGFS = new Reader(gi).read();
 		trace(myGFS.header);
-		gi.seek(0, SeekBegin);
+		// gi.seek(0, SeekBegin);
 		var testFile2 = new Reader(gi).getFile(17); // 'test-file.txt'
 		trace(testFile2.data);
 		trace(testFile2.offset);
-		gi.seek(0, SeekBegin);
+		// gi.seek(0, SeekBegin);
 		var testFile1 = new Reader(gi).getFile('AI/combos/cow/Cow_3_WORK.ini'); // 'test-file2.txt'
 		trace(testFile1.data);
 		trace(testFile1.offset);
@@ -60,6 +63,9 @@ class GfsTest {
 		// /*
 		// GFS Write
 		var file_location = "test/assets/gfs/big-floppa.gfs";
+		#if (debug && cpp)
+		file_location = "../test/assets/gfs/big-floppa.gfs";
+		#end
 		// 'temp/true_color_sprites/velvet.txt'
 		// 721
 
@@ -69,4 +75,20 @@ class GfsTest {
 		go.close();
 		//  */
 	}
+
+	static function unpackGfs(location:String) {
+		var gi = sys.io.File.read(location);
+		trace('Start of gfs file reading: "$location"');
+		var thisGFS = new Reader(gi).read();
+		// trace(thisGFS.header);
+		var i = 0;
+		while (i < thisGFS.metaInfBlock.length) {
+			var testFile2 = new Reader(gi).getFile(i, thisGFS);
+			var path = thisGFS.metaInfBlock[i].reference_path;
+			i++;
+		}
+		gi.close();
+	}
+
+	static function packGfs() {}
 }

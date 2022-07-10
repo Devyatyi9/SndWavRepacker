@@ -11,5 +11,6 @@ class Test {
 
 	static function launchSndArgs() {
 		SndArgs();
+		// new GfsTest().main();
 	}
 }

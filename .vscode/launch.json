@@ -29,7 +29,7 @@
       "type": "hxcpp",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "program": "${workspaceFolder}/bin/Test-debug.exe"
+      "program": "${workspaceFolder}/bin/GfsTest-debug.exe"
     }
   ]
 }

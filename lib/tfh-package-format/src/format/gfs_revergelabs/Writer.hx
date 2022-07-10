@@ -26,6 +26,8 @@ class Writer {
 		o.writeInt32(gfs.n_of_files);
 	}
 
+	function writeContent(aligned:Bool) {}
+
 	public function updateFile(data:FileData, oldLength:Int) {
 		// gfs.data_offset
 		// gfs.n_of_files
