@@ -1,5 +1,6 @@
 package;
 
+import sys.FileSystem;
 import format.gfs_revergelabs.Reader;
 import format.gfs_revergelabs.Writer;
 
@@ -21,6 +22,7 @@ class GfsTest {
 		// var location = "test/assets/gfs/empty-container-04.gfs";
 		// var location = "test/assets/gfs/empty-container-04-aligned.gfs";
 		var location = "test/assets/gfs/test-failik.gfs";
+		// var location = "test/assets/gfs/empty-files.gfs";
 		#if (debug && cpp)
 		location = "../test/assets/gfs/test-failik.gfs";
 		#end
@@ -40,7 +42,8 @@ class GfsTest {
 		trace("Program path: " + Sys.programPath());
 		trace("Working directory: " + Sys.getCwd());
 		// Start
-		gfsTestReadWrite(location);
+		// gfsTestReadWrite(location);
+		unpackGfs(location);
 	}
 
 	// function new() {};
@@ -50,11 +53,9 @@ class GfsTest {
 		trace('Start of gfs file reading: "$location"');
 		var myGFS = new Reader(gi).read();
 		trace(myGFS.header);
-		// gi.seek(0, SeekBegin);
 		var testFile2 = new Reader(gi).getFile(17, myGFS); // 'test-file.txt'
 		trace(testFile2.data);
 		trace(testFile2.offset);
-		// gi.seek(0, SeekBegin);
 		var testFile1 = new Reader(gi).getFile('AI/combos/cow/Cow_3_WORK.ini', myGFS); // 'test-file2.txt'
 		trace(testFile1.data);
 		trace(testFile1.offset);
@@ -83,10 +84,21 @@ class GfsTest {
 		// trace(thisGFS.header);
 		var i = 0;
 		while (i < thisGFS.metaInfBlock.length) {
-			var testFile2 = new Reader(gi).getFile(i, thisGFS);
-			var path = thisGFS.metaInfBlock[i].reference_path;
+			var fileForSave = new Reader(gi).getFile(i, thisGFS);
+			var filePath = thisGFS.metaInfBlock[i].reference_path;
+			// trace(fileForSave.offset);
+			trace(filePath);
+			// var filePath = new haxe.io.Path(path);
+			var gfsLocation = new haxe.io.Path(location);
+			trace(gfsLocation.dir);
+			var pathForSave = '${gfsLocation.dir}/${gfsLocation.file}/${filePath}';
+			trace(pathForSave);
+			var filePath = new haxe.io.Path(pathForSave);
+			FileSystem.createDirectory(filePath.dir);
+			sys.io.File.saveBytes(pathForSave, fileForSave.data);
 			i++;
 		}
+		trace('end.');
 		gi.close();
 	}
 

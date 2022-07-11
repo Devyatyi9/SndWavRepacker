@@ -91,7 +91,7 @@ class Reader {
 						data: data,
 						offset: offset
 					};
-					trace('File by index ${index} has been read.');
+					// trace('File by index ${index} has been read.');
 				}
 				if (exist == false) {
 					trace('File by index ${index} not found.');
