@@ -1,4 +1,5 @@
 # SndWavRepacker GUI
+![](https://steamuserimages-a.akamaihd.net/ugc/2027231506466405284/F8113B6EF39BB89CC1FB0E4C102A26298F6840C8/)
 
 [Download](https://github.com/Devyatyi9/SndWavRepacker/releases/tag/PreRelease)
 
